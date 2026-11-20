@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>金海心语 · 大学生心理服务互动平台</title>
+<meta name="description" content="金海心语——基于AI赋能的大学生心理服务互动网站">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#home" data-page="home">
+      <span class="brand-mark"></span>
+      <span class="brand-text">金海心语</span>
+      <span class="brand-sub">大学生心理服务互动平台</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#home"   data-page="home"   class="nav-link active">首页</a>
+      <a href="#chat"   data-page="chat"   class="nav-link">智能对话</a>
+      <a href="#assess" data-page="assess" class="nav-link">情绪测评</a>
+      <a href="#know"   data-page="know"   class="nav-link">心理科普</a>
+      <a href="#tree"   data-page="tree"   class="nav-link">心灵树洞</a>
+    </nav>
+    <button class="nav-status" id="apiStatus" data-state="loading" title="点击查看/配置大模型接口">
+      <span class="dot-live"></span><span id="apiStatusText">检测中…</span>
+    </button>
+    <button class="nav-burger" id="burger" aria-label="菜单">≡</button>
+  </div>
+</header>
+
+<div class="conn-banner" id="connBanner" hidden>
+  <div class="container conn-inner">
+    <div class="conn-icon">!</div>
+    <div class="conn-body">
+      <strong id="connTitle">连不上后端服务</strong>
+      <div class="conn-text" id="connText"></div>
+    </div>
+    <div class="conn-actions">
+      <button class="btn btn-primary btn-sm" id="connRetry">重新连接</button>
+      <button class="btn-line btn-sm" id="connHelp">看原因</button>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============================================ 首页 -->
+  <section class="page active" id="page-home">
+    <div class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-inner">
+        <div class="hero-badge">教育 —— 咨询 —— 互助</div>
+        <h1 class="hero-title">把「想求助」<br>到「敢开口」的距离<br><em>缩短到一次点击</em></h1>
+        <p class="hero-desc">
+          7×24 小时在线的 AI 心理陪伴、可量化的情绪自评、按校园场景组织的心理科普，
+          以及一个可以匿名的树洞。四件事，一个入口。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#chat" data-page="chat">开始对话</a>
+          <a class="btn btn-ghost" href="#assess" data-page="assess">做一次情绪测评</a>
+        </div>
+        <div class="hero-note">
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 1l6 3v4c0 3.5-2.5 6-6 7-3.5-1-6-3.5-6-7V4l6-3z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+          不诊断、不替代咨询师；数据最小化收集，匿名优先
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="feature-grid">
+        <a class="feature" href="#chat" data-page="chat">
+          <span class="feature-tag">咨询</span>
+          <h3>智能对话</h3>
+          <p>接入大模型 + 情绪识别 + 策略映射。三种情绪三种回应，高风险自动转人工。</p>
+          <span class="feature-go">去看看 →</span>
+        </a>
+        <a class="feature" href="#assess" data-page="assess">
+          <span class="feature-tag">评估</span>
+          <h3>情绪测评</h3>
+          <p>GAD-7 焦虑与 PHQ-9 抑郁自评，答完即出分级报告，可看前后测趋势。</p>
+          <span class="feature-go">去测一次 →</span>
+        </a>
+        <a class="feature" href="#know" data-page="know">
+          <span class="feature-tag">教育</span>
+          <h3>心理科普</h3>
+          <p>按学业、就业、人际、情感四类校园场景组织，支持标签与关键词检索。</p>
+          <span class="feature-go">去读一篇 →</span>
+        </a>
+        <a class="feature" href="#tree" data-page="tree">
+          <span class="feature-tag">互助</span>
+          <h3>心灵树洞</h3>
+          <p>匿名发帖、点赞。AI 先做情绪识别与共情回复，高危内容进人工通道。</p>
+          <span class="feature-go">去说一句 →</span>
+        </a>
+      </div>
+
+      <div class="home-flow">
+        <div class="flow-title">一次求助，在平台上的完整路径</div>
+        <div class="flow">
+          <div class="flow-step"><b>01</b><span>说一句</span><i>哪怕只有三个字</i></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><b>02</b><span>情绪识别</span><i>积极 / 中性 / 消极 / 高风险</i></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><b>03</b><span>策略映射</span><i>安慰疏导 / 陪伴支持 / 转人工</i></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><b>04</b><span>闭环</span><i>科普 + 树洞 + 心理中心</i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ 智能对话 -->
+  <section class="page" id="page-chat">
+    <div class="container">
+      <div class="page-head">
+        <div class="eyebrow">咨询 / AI COMPANION</div>
+        <h2>智能对话</h2>
+        <p>你可以只说一句，也可以说很多。没有预约、没有实名。</p>
+      </div>
+
+      <div class="offline-banner" id="offlineBanner" hidden>
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" style="flex-shrink:0;margin-top:2px"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 4.6v.1M8 7v4.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <span><b>当前是离线模式。</b>没有配置大模型 API，系统用内置规则引擎作答，功能完整但对话不够灵活。
+          <br>填一把 API Key 就能切到真实大模型 —— </span>
+        <button id="openSettings2">去配置 →</button>
+      </div>
+
+      <div class="chat-wrap">
+        <aside class="chat-side">
+          <div class="side-card">
+            <div class="side-label">当前情绪状态</div>
+            <div class="emotion-badge" id="emotionBadge" data-state="none">尚未识别</div>
+            <div class="emotion-meter"><div class="emotion-fill" id="emotionFill"></div></div>
+            <div class="side-hint" id="emotionHint">说点什么，我会先听懂你的情绪。</div>
+          </div>
+          <div class="side-card">
+            <div class="side-label">三种回应方式</div>
+            <ul class="mini-list">
+              <li><b class="dot dot-neg"></b>消极 → 安慰疏导</li>
+              <li><b class="dot dot-mid"></b>中性 → 陪伴支持</li>
+              <li><b class="dot dot-risk"></b>高风险 → 人工转接</li>
+            </ul>
+          </div>
+          <div class="side-card">
+            <div class="side-label">本次会话</div>
+            <p style="font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:12px" id="sessionStat">
+              还没有记录
+            </p>
+            <button class="btn-line btn-sm" id="genReport" style="width:100%">生成心理小结</button>
+          </div>
+          <div class="side-card side-card-warn">
+            <div class="side-label">如果你现在很难受</div>
+            <p>请直接联系学校心理中心或拨打 <b>12356</b> 心理援助热线。AI 只能陪你说说话，不能替代专业帮助。</p>
+          </div>
+        </aside>
+
+        <div class="chat-main">
+          <div class="chat-log" id="chatLog"></div>
+          <div class="chat-quick" id="chatQuick">
+            <button class="chip" data-say="最近期末压力特别大，晚上睡不着">期末压力大睡不着</button>
+            <button class="chip" data-say="和室友闹矛盾了，我不知道该怎么开口">和室友闹矛盾</button>
+            <button class="chip" data-say="投了三十份简历都没回，感觉特别没用">投简历都没回</button>
+            <button class="chip" data-say="今天心情还不错，就是有点累">今天还行</button>
+          </div>
+          <form class="chat-input" id="chatForm">
+            <textarea id="chatText" rows="1" placeholder="说点什么吧……（Enter 发送，Shift+Enter 换行）"></textarea>
+            <button class="btn btn-primary btn-send" type="submit">发送</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ 情绪测评 -->
+  <section class="page" id="page-assess">
+    <div class="container">
+      <div class="page-head">
+        <div class="eyebrow">评估 / ASSESSMENT</div>
+        <h2>情绪测评</h2>
+        <p>GAD-7 广泛性焦虑量表 · PHQ-9 抑郁自评量表。回想<strong>最近两周</strong>的实际情况作答，没有对错。</p>
+      </div>
+
+      <div class="assess-tabs">
+        <button class="tab active" data-scale="GAD7">焦虑自评 GAD-7</button>
+        <button class="tab" data-scale="PHQ9">抑郁自评 PHQ-9</button>
+        <button class="tab" data-scale="history">我的记录与趋势</button>
+      </div>
+
+      <div class="assess-body">
+        <div id="quizArea"><div class="hist-empty"><span class="loading-line"></span>正在加载量表…</div></div>
+        <div id="resultArea"></div>
+        <div id="historyArea" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ 心理科普 -->
+  <section class="page" id="page-know">
+    <div class="container">
+      <div class="page-head">
+        <div class="eyebrow">教育 / KNOWLEDGE</div>
+        <h2>心理科普</h2>
+        <p>不谈大道理，只谈你现在真正会碰到的处境。</p>
+      </div>
+
+      <div class="know-bar">
+        <div class="know-cats" id="knowCats"></div>
+        <div class="know-search">
+          <input type="search" id="knowSearch" placeholder="搜索关键词，比如「失眠」「面试」「室友」">
+        </div>
+      </div>
+      <div class="know-grid" id="knowGrid"></div>
+      <div class="know-empty" id="knowEmpty" hidden>没有找到相关内容，换个关键词试试。</div>
+    </div>
+  </section>
+
+  <!-- ============================================ 心灵树洞 -->
+  <section class="page" id="page-tree">
+    <div class="container">
+      <div class="page-head">
+        <div class="eyebrow">互助 / ANONYMOUS COMMUNITY</div>
+        <h2>心灵树洞</h2>
+        <p>匿名发布，不发真名、不建画像。AI 会先听懂你的情绪，再回你一句人话。</p>
+      </div>
+
+      <div class="tree-wrap">
+        <div class="tree-compose">
+          <textarea id="treeText" placeholder="把说不出口的话写在这里……（最多 500 字）" maxlength="500"></textarea>
+          <div class="tree-compose-bar">
+            <span class="tree-count" id="treeCount">0 / 500</span>
+            <button class="btn btn-primary" id="treePost">匿名发布</button>
+          </div>
+          <div class="tree-tips">
+            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 4.6v.1M8 7v4.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            含自杀、自残等高风险表述的内容不会公开显示，会直接进入人工通道。
+          </div>
+        </div>
+
+        <div class="tree-list" id="treeList"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-box">
+    <button class="modal-x" id="modalX" aria-label="关闭">×</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
