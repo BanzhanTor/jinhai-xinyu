@@ -1,0 +1,20 @@
+{
+  "_说明": "把本文件复制为 config.json 再修改。只有 api_key 是必须自己填的。",
+
+  "provider": "deepseek",
+  "base_url": "https://api.deepseek.com/v1",
+  "model": "deepseek-chat",
+  "api_key": "",
+
+  "_备选服务商": "provider 可填 deepseek / openai / qwen / kimi / zhipu / ollama；改 provider 后把 base_url 和 model 留空即可自动带出预设",
+
+  "temperature": 0.75,
+  "max_tokens": 700,
+  "timeout": 60,
+  "use_api_emotion": true,
+
+  "host": "127.0.0.1",
+  "port": 8000,
+  "db_path": "data/jhxy.db",
+  "debug": false
+}
