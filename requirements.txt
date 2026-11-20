@@ -1,0 +1,11 @@
+# 本项目只用 Python 标准库，无需 pip install 任何东西。
+#
+# 已使用的标准库模块：
+#   wsgiref       —— WSGI 服务器
+#   urllib.request—— 调用大模型 API（替代 requests）
+#   sqlite3       —— 数据存储
+#   json / re / ssl / socket / threading / pathlib / mimetypes ...
+#
+# 如果将来要换成 Flask 或接 Redis，再按需安装：
+# flask>=2.0
+# redis>=5.0
