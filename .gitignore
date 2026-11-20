@@ -1,0 +1,24 @@
+# 忽略运行时产物与本地配置
+__pycache__/
+*.py[cod]
+*.log
+
+# 本地数据库
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# 本地配置（可能含 API Key，绝不能提交）
+config.json
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 临时文件
+*.tmp
+*.bak
